@@ -1,9 +1,13 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 
 public class LabManager{
+    static ArrayList<Computer> computers = new ArrayList<Computer>();
+    static ArrayList<JCheckBox> computerButtons = new ArrayList<JCheckBox>();
+    
     public static void createAndShowGUI(){
         JFrame frame = new JFrame("Lab Manager");
         JPanel top = new JPanel();
@@ -21,9 +25,17 @@ public class LabManager{
 
         //Center panel
         JPanel center = new JPanel();
+        
         center.setBackground(Color.cyan);
         center.setPreferredSize(new Dimension(150, 100));
         frame.getContentPane().add(center, BorderLayout.CENTER);
+        for (Computer c : computers){
+            JCheckBox b = new JCheckBox(c.friendlyName);
+            b.setBounds(40,20,200,100);
+            center.add(b);
+            computerButtons.add(b);
+
+        }
 
         //middle-right panel
         JPanel right = new JPanel();
@@ -36,6 +48,10 @@ public class LabManager{
         bottom.setBackground(Color.red);
         bottom.setPreferredSize(new Dimension(300, 50));
         frame.getContentPane().add(bottom, BorderLayout.PAGE_END);
+        JButton cmdTest = new JButton(" Test me ");
+        cmdTest.setBounds(40, 20, 200, 100);
+        bottom.add(cmdTest);
+
 
         //conter controls
         JLabel centerLabel = new JLabel("Hello World!", SwingConstants.CENTER);
@@ -48,6 +64,10 @@ public class LabManager{
 
     }
     public static void main(String[] args){
+        computers.add(new Computer("mm-01"));
+        computers.add(new Computer("mm-02"));
+        computers.add(new Computer("mm-03"));
+
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run(){
                 createAndShowGUI();
