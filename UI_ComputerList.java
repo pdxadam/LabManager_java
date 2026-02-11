@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class UI_ComputerList extends JPanel {
-    ArrayList<JCheckBox> computerChecks = new ArrayList<JCheckBox>();
+    private ArrayList<JCheckBox> computerChecks = new ArrayList<JCheckBox>();
     public UI_ComputerList(){
         super();
     }
@@ -15,6 +15,16 @@ public class UI_ComputerList extends JPanel {
             this.add(j);
 
         }
+    }
+    public ArrayList<String> getSelected(){
+        ArrayList<String> selected = new ArrayList<>();
+        for(JCheckBox chk : computerChecks){
+            if (chk.isSelected()){
+                selected.add(chk.getText());
+            }
+        }
+        return selected;
+        
     }
 
 }
