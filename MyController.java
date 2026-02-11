@@ -5,6 +5,7 @@ public class MyController {
         this.lab = lab;
         this.ui = ui;
         this.ui.setComputerList(lab.getComputers());
+        this.ui.setVisible(true);
     }
 
 }

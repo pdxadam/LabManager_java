@@ -70,12 +70,13 @@ public class LabManager{
         lab.addComputer(new Computer("mm-01"));
         lab.addComputer(new Computer("mm-02"));
         lab.addComputer(new Computer("mm-03"));
-        UI view = new UI();
-        new MyController(lab, view);
+        
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run(){
-                createAndShowGUI();
+                // createAndShowGUI();
+                UI view = new UI();
+                new MyController(lab, view);
             }
         });
 
